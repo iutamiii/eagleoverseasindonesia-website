@@ -582,6 +582,7 @@
   /* ===== Event gallery ===== */
   .gal-event{margin-bottom:40px;}
   .gal-meta h3{font-size:20px;color:var(--navy);margin-bottom:4px;}
+  .gal-meta h3:last-child{margin-bottom:18px;}
   .gal-meta p{font-size:14px;color:var(--ink-soft);margin-bottom:18px;}
   .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:12px;}
   .gal-item{position:relative;display:block;overflow:hidden;border-radius:6px;background:var(--navy-deep);cursor:zoom-in;}
