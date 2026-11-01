@@ -611,3 +611,7 @@
   .lb-video{display:none;height:calc(100vh - 120px);max-height:760px;aspect-ratio:9/16;max-width:100%;}
   .lb-video iframe{width:100%;height:100%;border:0;border-radius:6px;}
   @media (max-width:640px){ .gal-vid{width:calc(33.33% - 8px);} .gal-videos{gap:8px;} }
+  .gal-mixed{display:flex;gap:12px;height:300px;}
+  .gal-mixed .gal-photo{flex:0 0 auto;height:100%;aspect-ratio:4/3;}
+  .gal-mixed .gal-vid{flex:1 1 0;width:auto;height:100%;aspect-ratio:auto;}
+  @media (max-width:860px){ .gal-mixed{flex-wrap:wrap;height:auto;} .gal-mixed .gal-photo{flex:1 1 100%;height:auto;aspect-ratio:4/3;} .gal-mixed .gal-vid{flex:1 1 calc(25% - 9px);aspect-ratio:9/16;height:auto;} }
