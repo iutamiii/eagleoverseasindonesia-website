@@ -439,9 +439,13 @@ function toggleFaq(i){
   var lb=document.getElementById('lightbox'); if(!lb) return;
   var img=document.getElementById('lbImg'), cap=document.getElementById('lbCap');
   var items=[], idx=0;
-  function show(i){ idx=(i+items.length)%items.length; var a=items[idx], im=a.querySelector('img'); img.src=a.getAttribute('href'); img.alt=im?im.alt:''; cap.textContent=im?im.alt:''; }
+  var vid=document.getElementById('lbVid');
+  function show(i){ idx=(i+items.length)%items.length; var a=items[idx], im=a.querySelector('img'), v=a.getAttribute('data-video');
+    vid.innerHTML='';
+    if(v){ img.style.display='none'; img.src=''; vid.style.display='block'; vid.innerHTML='<iframe src="https://www.youtube.com/embed/'+v+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; cap.textContent=''; }
+    else { vid.style.display='none'; img.style.display='block'; img.src=a.getAttribute('href'); img.alt=im?im.alt:''; cap.textContent=im?im.alt:''; } }
   function open(group,el){ items=[].slice.call(document.querySelectorAll('[data-gallery="'+group+'"]')); show(items.indexOf(el)); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-  function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; img.src=''; }
+  function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; img.src=''; vid.innerHTML=''; }
   document.querySelectorAll('[data-gallery]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); open(a.getAttribute('data-gallery'),a); }); });
   lb.querySelector('.lb-close').addEventListener('click',close);
   lb.querySelector('.lb-prev').addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
