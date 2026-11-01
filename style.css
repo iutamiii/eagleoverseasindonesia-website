@@ -690,3 +690,6 @@
   .car-icon{background:rgba(27,74,143,0.08);color:var(--navy);}
   .ebook-promo-card{background:#fff;}
   .mini-svc-item .dot{background:#fff;}
+  .hero-img-full::before{display:none;}
+  .hero-img-full{border-radius:10px;overflow:hidden;}
+  .hero-img-full img{object-position:center 40%;}
