@@ -251,16 +251,13 @@ function scrollTt(dir){
   ttScrollEl.scrollBy({ left: dir * step, behavior: 'smooth' });
 }
 
-const events = [
-  {d:"23", m:"Oct", title:"Move to Barcelona: Study in Spain. Connect with Europe. Build Your Global Career. (C3S Business School)", note:"Upcoming · Jumat, 19.00 WIB · Online, Zoom"},
-  {d:"25", m:"Oct", title:"Singapore, Your Door to APAC: Study. Network. Go Global. Last Chance 50% Scholarship (TMC Academy Singapore)", note:"Upcoming · Minggu, 20.00 WIB · Online, Zoom"},
-];
-{ const el = document.getElementById('homeEvtList'); if(el) el.innerHTML = events.map(e=>`
+const events = [];
+{ const el = document.getElementById('homeEvtList'); if(el) el.innerHTML = events.length ? events.map(e=>`
   <a href="/event/" class="evt-row">
     <div class="evt-date"><b>${e.d}</b><span class="mono">${e.m}</span></div>
     <div class="evt-info"><b>${e.title}</b><span>${e.note}</span></div>
     <div class="evt-arrow">→</div>
-  </a>`).join(''); }
+  </a>`).join('') : `<a href="https://whatsapp.com/channel/0029Vb72LoyLSmbcJvDunX1U" target="_blank" class="evt-row"><div class="evt-date"><b>Soon</b><span class="mono">Nov</span></div><div class="evt-info"><b>Webinar berikutnya segera diumumkan</b><span>Ikuti WhatsApp Channel Eagle Overseas untuk info jadwal terbaru</span></div><div class="evt-arrow">→</div></a>`; }
 
 const testimonials = [
   {name:"Annisa", place:"Canada", text:"Sis Indira has helped me for the past 2 years relentlessly. She met me where I was and fulfilled what I needed for every twist and turn. I can finally start my study journey in Canada this year."},
@@ -386,12 +383,12 @@ const uwsVideos = [
   </div>`).join(''); }
 
 const pastEvents = [
+  {title:"Study Construction in New Zealand: Your Pathway to Green List Careers (Laurus Education NZ)", date:"Past · October 2026", src:"/images/webinar-laurus-nz.png"},
+  {title:"Singapore, Your Door to APAC: Study. Network. Go Global. Last Chance 50% Scholarship (TMC Academy Singapore)", date:"Past · October 2026", src:"/images/webinar-tmc-singapore.png"},
+  {title:"Move to Barcelona: Study in Spain. Connect with Europe. Build Your Global Career. (C3S Business School)", date:"Past · October 2026", src:"/images/webinar-c3s-barcelona.png"},
   {title:"Your Pathway to Austria & Germany: Two Destinations, Two Language Options. English or German, You Choose! (German Educare)", date:"Past · October 2026", src:"/images/webinar-german-educare.jpg"},
   {title:"Kuliah S1 di Belgia Gratis? Bongkar Strategi Mendapatkan Beasiswa S1 Fully Funded di Belgia bersama Scholarship Awardee", date:"Past · October 2026", src:"/images/webinar-belgium-s1.jpg"},
   {title:"Hospitality Internship in New Zealand: Gain 6-12 Months of International Exposure (Aspen Experience)", date:"Past · October 2026", src:"/images/webinar-aspen-new-zealand.jpg"},
-  {title:"Unlocking Hidden Gem in Europe: Strategi Kuliah Super Hemat di Spanyol Hanya 15jt-an/Year (Campus Spain)", date:"Past · October 2026", src:"/images/webinar-campus-spain.jpg"},
-  {title:"Bongkar Strategi Tembus LPDP 2027: Kunci Lolos Beasiswa Sekaligus Siap Jadi Rebutan Industri", date:"Past · October 2026", src:"/images/webinar-lpdp-2027.jpg"},
-  {title:"Kuliah di Prancis Tanpa Bisa Bahasa Prancis, Kuliah di Jerman Tanpa Bahasa Jerman? Bisa! (GEDU · ICN Business School)", date:"Past · October 2026", src:"/images/webinar-icn-gedu.jpg"},
 ];
 /* ===== Past Events — simple static list ===== */
 function renderPastEvents(){
