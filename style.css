@@ -669,3 +669,24 @@
   .svc-tile p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
   .svc-note{margin-top:30px;font-size:14px;color:var(--ink-soft);text-align:center;font-style:italic;}
   @media (max-width:860px){ .svc-steps,.svc-grid{grid-template-columns:1fr;} }
+
+  /* ===== Visual refresh v1 (draft) ===== */
+  /* Headings font */
+  h1,h2,h3,h4,.car-card b,.svc-tile b,.svc-step b,.hero-stats b,.gal-meta h3,.np-card h3,.prime-partner-info h3{font-family:'Plus Jakarta Sans',Arial,sans-serif;letter-spacing:-0.01em;}
+  h1,h2{font-weight:800;}
+  /* Why section line icons */
+  .why-line-icon{display:inline-flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:rgba(27,74,143,0.08);color:var(--navy);margin:18px auto 16px;}
+  .why-line-icon svg{width:36px;height:36px;}
+  /* One card style: white, thin border, 10px radius, navy outline on hover */
+  .stamp-card,.np-card,.prime-partner-card,.car-card,.testi-card,.svc-tile,.svc-step,.nwc-card,.post,.ebook-card,.channel-card{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:none;}
+  .stamp-card{padding:30px 24px;}
+  .np-card::before{display:none;}
+  .prime-partner-card:hover,.np-card:hover,.car-card:hover,.stamp-card:hover,.channel-card:hover{border-color:var(--navy);box-shadow:0 10px 24px rgba(18,53,99,0.08);}
+  /* Services carousel on a light background */
+  .carousel-section{background:var(--paper);}
+  .carousel-section .car-arrow{background:var(--navy);color:#fff;}
+  .car-dot{background:rgba(27,74,143,0.2);}
+  .car-dot.active{background:var(--navy);}
+  .car-icon{background:rgba(27,74,143,0.08);color:var(--navy);}
+  .ebook-promo-card{background:#fff;}
+  .mini-svc-item .dot{background:#fff;}
