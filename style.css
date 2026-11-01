@@ -693,3 +693,14 @@
   .hero-img-full::before{display:none;}
   .hero-img-full{border-radius:10px;overflow:hidden;}
   .hero-img-full img{object-position:center 40%;}
+
+  /* Home: compact services teaser + smaller TikTok cards */
+  .svc-teaser{padding:48px 0;background:var(--paper);}
+  .svc-teaser-box{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:32px 36px;}
+  .svc-teaser-box h2{margin:4px 0 8px;}
+  .svc-teaser-box p{color:var(--ink-soft);font-size:15px;max-width:640px;}
+  .svc-teaser-box .btn{flex-shrink:0;}
+  @media (max-width:760px){ .svc-teaser-box{flex-direction:column;align-items:flex-start;padding:26px 22px;} }
+  .tt-scroll-viewport{gap:12px;}
+  .tt-embed-card{width:180px;}
+  @media (max-width:640px){ .tt-embed-card{width:150px;} .tt-scroll-wrap .pe-arrow{display:none;} }
