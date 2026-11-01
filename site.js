@@ -432,3 +432,22 @@ function toggleFaq(i){
   document.querySelectorAll('.faq-item').forEach(el=>{el.classList.remove('open');el.querySelector('.faq-a').style.maxHeight=null;});
   if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+20+'px'; }
 }
+
+
+/* ===== Event gallery lightbox ===== */
+(function(){
+  var lb=document.getElementById('lightbox'); if(!lb) return;
+  var img=document.getElementById('lbImg'), cap=document.getElementById('lbCap');
+  var items=[], idx=0;
+  function show(i){ idx=(i+items.length)%items.length; var a=items[idx], im=a.querySelector('img'); img.src=a.getAttribute('href'); img.alt=im?im.alt:''; cap.textContent=im?im.alt:''; }
+  function open(group,el){ items=[].slice.call(document.querySelectorAll('[data-gallery="'+group+'"]')); show(items.indexOf(el)); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; img.src=''; }
+  document.querySelectorAll('[data-gallery]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); open(a.getAttribute('data-gallery'),a); }); });
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  lb.querySelector('.lb-prev').addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
+  lb.querySelector('.lb-next').addEventListener('click',function(e){e.stopPropagation();show(idx+1);});
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open')) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') show(idx-1); if(e.key==='ArrowRight') show(idx+1); });
+  var sx=null; lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) show(idx+(dx<0?1:-1)); sx=null; });
+})();
