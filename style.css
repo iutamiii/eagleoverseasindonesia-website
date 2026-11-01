@@ -615,3 +615,8 @@
   .gal-mixed .gal-photo{flex:0 0 auto;height:100%;aspect-ratio:4/3;}
   .gal-mixed .gal-vid{flex:1 1 0;width:auto;height:100%;aspect-ratio:auto;}
   @media (max-width:860px){ .gal-mixed{flex-wrap:wrap;height:auto;} .gal-mixed .gal-photo{flex:1 1 100%;height:auto;aspect-ratio:4/3;} .gal-mixed .gal-vid{flex:1 1 calc(25% - 9px);aspect-ratio:9/16;height:auto;} }
+  .gal-tall{grid-row:span 2;}
+  .gal-tall img{object-position:center center;}
+  .gal-vid-wide{width:auto;aspect-ratio:16/9;height:266px;}
+  .lb-video.landscape{aspect-ratio:16/9;height:auto;width:min(1000px,calc(100vw - 140px));max-height:none;}
+  @media (max-width:640px){ .gal-vid-wide{width:100%;height:auto;} .lb-video.landscape{width:calc(100vw - 32px);} }

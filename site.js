@@ -442,7 +442,7 @@ function toggleFaq(i){
   var vid=document.getElementById('lbVid');
   function show(i){ idx=(i+items.length)%items.length; var a=items[idx], im=a.querySelector('img'), v=a.getAttribute('data-video');
     vid.innerHTML='';
-    if(v){ img.style.display='none'; img.src=''; vid.style.display='block'; vid.innerHTML='<iframe src="https://www.youtube.com/embed/'+v+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; cap.textContent=''; }
+    if(v){ img.style.display='none'; img.src=''; vid.style.display='block'; vid.classList.toggle('landscape', a.getAttribute('data-orient')==='landscape'); vid.innerHTML='<iframe src="https://www.youtube.com/embed/'+v+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; cap.textContent=''; }
     else { vid.style.display='none'; img.style.display='block'; img.src=a.getAttribute('href'); img.alt=im?im.alt:''; cap.textContent=im?im.alt:''; } }
   function open(group,el){ items=[].slice.call(document.querySelectorAll('[data-gallery="'+group+'"]')); show(items.indexOf(el)); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
   function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; img.src=''; vid.innerHTML=''; }
