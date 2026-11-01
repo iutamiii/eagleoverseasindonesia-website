@@ -58,7 +58,6 @@ const partnerLogos = [
   {name:"Campus Spain", src:"/images/partner-campus-spain.png"},
   {name:"C3S Business School", src:"/images/partner-c3s.png"},
   {name:"BHMS", src:"/images/partner-bhms.png"},
-  {name:"SHMS", src:"/images/partner-shms.png"},
   {name:"Schiller International University", src:"/images/partner-schiller.png"},
   {name:"Stanley Prep", src:"/images/partner-stanley-prep.png"},
 ];
