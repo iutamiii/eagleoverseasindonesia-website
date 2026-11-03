@@ -708,3 +708,13 @@
   /* Page headers: larger type, same scale as Eagle Go */
   .about-hero.hero-navy:not(.article-hero) h1,.about-hero.hero-red:not(.article-hero) h1,.event-hero-band h1{font-size:clamp(2.3rem,5.2vw,3.9rem);line-height:1.1;max-width:18ch;margin-bottom:18px;}
   .about-hero.hero-navy:not(.article-hero) p,.about-hero.hero-red:not(.article-hero) p,.event-hero-band p{font-size:1.12rem;line-height:1.6;}
+
+  /* Article extras */
+  .article-body h3{font-size:19px;color:var(--navy);margin:26px 0 12px;}
+  .article-table{width:100%;border-collapse:collapse;margin:6px 0 22px;font-size:15.5px;}
+  .article-table th,.article-table td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);}
+  .article-table th{background:var(--cream);color:var(--navy);font-size:13px;letter-spacing:.04em;text-transform:uppercase;}
+  .article-table td:last-child{font-weight:600;color:var(--navy);}
+  .article-disclaimer{font-size:13px;color:var(--ink-soft);font-style:italic;border-top:1px solid var(--line);padding-top:16px;margin-top:22px !important;}
+  .posts.featured .post:not(:first-child) .post-head,.posts.featured .post:not(:first-child) .post-side{gap:8px;}
+  .posts.featured .post:not(:first-child) h3{font-size:17px;}
