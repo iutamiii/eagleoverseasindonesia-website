@@ -126,9 +126,9 @@ function svcCard(s){
 }
 { const el = document.getElementById('servicesFullGrid'); if(el) el.innerHTML = services.map(svcCard).join(''); }
 const quickStats = [
-  {n:"26", l:"Destination countries guided"},
+  {n:"25", l:"Destination countries guided"},
   {n:"6+", l:"Years of hands-on experience"},
-  {n:"1,600", l:"Partner universities worldwide"},
+  {n:"1,600+", l:"Universities we can help you apply to"},
 ];
 { const el = document.getElementById('miniStatList'); if(el) el.innerHTML = quickStats.map(s=>`<div class="mini-svc-item"><span class="dot"></span><b style="color:#fff;margin-right:6px;">${s.n}</b>${s.l}</div>`).join(''); }
 
@@ -415,7 +415,7 @@ const replays = [
 
 const faqs = [
   {q:"What happens in the first consultation?", a:"We take time to understand your background and goals, then walk you through the pathways that fit best — so you leave with a clear next step."},
-  {q:"Which countries does Eagle Overseas support?", a:"We support clients heading to 26 destination countries, including Canada, Australia, the UK, and the US, through our network of partner campuses and host companies."},
+  {q:"Which countries does Eagle Overseas support?", a:"We support clients heading to 25 destination countries, including Canada, Australia, the UK, and the US, through our network of partner campuses and host companies."},
   {q:"Does Eagle Overseas guarantee visa approval?", a:"We never promise certainty — every pathway is presented as an opportunity we prepare you for, never a guarantee."},
   {q:"How do I register for a webinar?", a:"Register directly through the WhatsApp button on the Event page, or reach us through any of the contact channels listed."},
 ];
