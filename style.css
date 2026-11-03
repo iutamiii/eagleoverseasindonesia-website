@@ -718,3 +718,31 @@
   .article-disclaimer{font-size:13px;color:var(--ink-soft);font-style:italic;border-top:1px solid var(--line);padding-top:16px;margin-top:22px !important;}
   .posts.featured .post:not(:first-child) .post-head,.posts.featured .post:not(:first-child) .post-side{gap:8px;}
   .posts.featured .post:not(:first-child) h3{font-size:17px;}
+
+  /* Article cover images */
+  .article-block{padding-top:44px;}
+  .article-cover{max-width:960px;margin:0 auto 40px;border-radius:12px;overflow:hidden;box-shadow:0 14px 34px rgba(18,53,99,0.14);}
+  .article-cover img{display:block;width:100%;height:auto;}
+  .post.has-cover{padding:0;overflow:hidden;}
+  .post-cover{aspect-ratio:16/9;overflow:hidden;background:var(--cream);}
+  .post-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  a.post.has-cover:hover .post-cover img{transform:scale(1.03);}
+  .post.has-cover .post-head,.post.has-cover .post-side{padding:0 26px;}
+  .post.has-cover .post-side{padding-bottom:26px;}
+  .posts.featured .post.has-cover:first-child{padding:0;grid-template-columns:1.15fr 1fr;gap:0;align-items:stretch;}
+  .posts.featured .post.has-cover:first-child .post-cover{grid-row:1 / span 2;aspect-ratio:auto;min-height:100%;}
+  .posts.featured .post.has-cover:first-child .post-head{padding:34px 36px 0;}
+  .posts.featured .post.has-cover:first-child .post-side{padding:14px 36px 34px;}
+  @media (max-width:860px){
+    .posts.featured .post.has-cover:first-child{grid-template-columns:1fr;}
+    .posts.featured .post.has-cover:first-child .post-cover{grid-row:auto;aspect-ratio:16/9;}
+    .posts.featured .post.has-cover:first-child .post-head{padding:22px 22px 0;}
+    .posts.featured .post.has-cover:first-child .post-side{padding:10px 22px 24px;}
+    .article-cover{margin-bottom:28px;border-radius:8px;}
+  }
+  .post-cover{aspect-ratio:1.91/1;}
+  .posts.featured .post.has-cover:first-child{align-items:center;}
+  .posts.featured .post.has-cover:first-child .post-cover{aspect-ratio:1.91/1;min-height:0;align-self:stretch;}
+  .posts.featured .post.has-cover:first-child .post-cover img{object-fit:cover;object-position:left center;}
+  @media (max-width:860px){ .posts.featured .post.has-cover:first-child .post-cover{aspect-ratio:1.91/1;} }
+  .posts.featured .post.has-cover:first-child .post-cover{align-self:center;width:100%;height:auto;}
