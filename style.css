@@ -740,3 +740,9 @@
     .posts.featured .post.has-cover:first-child .post-side{padding:10px 22px 24px;}
     .article-cover{margin-bottom:28px;border-radius:8px;}
   }
+  .post-cover{aspect-ratio:1.91/1;}
+  .posts.featured .post.has-cover:first-child{align-items:center;}
+  .posts.featured .post.has-cover:first-child .post-cover{aspect-ratio:1.91/1;min-height:0;align-self:stretch;}
+  .posts.featured .post.has-cover:first-child .post-cover img{object-fit:cover;object-position:left center;}
+  @media (max-width:860px){ .posts.featured .post.has-cover:first-child .post-cover{aspect-ratio:1.91/1;} }
+  .posts.featured .post.has-cover:first-child .post-cover{align-self:center;width:100%;height:auto;}
