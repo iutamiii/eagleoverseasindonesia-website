@@ -763,3 +763,10 @@
   .evt-promo-more:hover{opacity:1;}
   @media (prefers-reduced-motion:reduce){ .evt-badge{animation:none;} }
   @media (max-width:640px){ .evt-promo{grid-template-columns:96px 1fr;gap:14px;padding:12px;} .evt-promo-title{font-size:16px;} }
+  ol.article-list{padding-left:24px;}
+  ol.article-list li{padding-left:4px;}
+  ul.article-list{list-style:disc;}
+  ol.article-list{list-style:decimal;}
+  .article-list li::marker{color:var(--red);}
+  .post-cover.post-cover-tall,.posts.featured .post.has-cover:first-child .post-cover.post-cover-tall{aspect-ratio:1638/1320;}
+  .post-cover.post-cover-tall img,.posts.featured .post.has-cover:first-child .post-cover.post-cover-tall img{object-position:center center;}
