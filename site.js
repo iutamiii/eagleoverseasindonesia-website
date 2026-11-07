@@ -251,14 +251,79 @@ function scrollTt(dir){
 }
 
 const events = [
-  {d:"07", m:"Nov", title:"Menembus Batas Migrasi Australia: Jadi Chef di Australia (King's School of Culinary Arts)", note:"Sabtu, 20.00 WIB · Online, Zoom"},
+  {d:"07", m:"Nov", title:"Menembus Batas Migrasi Australia: Jadi Chef di Australia", partner:"King's School of Culinary Arts", note:"Sabtu, 20.00 WIB · Online, Zoom", start:"2026-11-07T20:00:00+07:00", link:"https://bit.ly/iu_kings", poster:"/images/webinar-kings-culinary.jpg"},
 ];
-{ const el = document.getElementById('homeEvtList'); if(el) el.innerHTML = events.length ? events.map(e=>`
-  <a href="/event/" class="evt-row">
-    <div class="evt-date"><b>${e.d}</b><span class="mono">${e.m}</span></div>
-    <div class="evt-info"><b>${e.title}</b><span>${e.note}</span></div>
-    <div class="evt-arrow">→</div>
-  </a>`).join('') : `<a href="https://whatsapp.com/channel/0029Vb72LoyLSmbcJvDunX1U" target="_blank" class="evt-row"><div class="evt-date"><b>Soon</b><span class="mono">Nov</span></div><div class="evt-info"><b>Webinar berikutnya segera diumumkan</b><span>Ikuti WhatsApp Channel Eagle Overseas untuk info jadwal terbaru</span></div><div class="evt-arrow">→</div></a>`; }
+
+/* ===== Event promo helpers (home card, countdown, announcement bar) ===== */
+const EVT_LIVE_MS = 2*60*60*1000; // keep showing for 2 hours after start
+function upcomingEvents(){
+  const now = Date.now();
+  return events.filter(e => !e.start || (new Date(e.start).getTime() + EVT_LIVE_MS) > now);
+}
+function evtUrgency(e){
+  if(!e.start) return '';
+  const t = new Date(e.start).getTime(), now = Date.now(), diff = t - now;
+  if(diff <= 0) return 'LIVE NOW';
+  const day = d => new Date(d.toLocaleString('en-US',{timeZone:'Asia/Jakarta'})).toDateString();
+  const today = day(new Date(now)), evDay = day(new Date(t)), tmr = day(new Date(now + 86400000));
+  if(evDay === today) return new Date(t).toLocaleString('en-US',{timeZone:'Asia/Jakarta',hour:'numeric',hour12:false}) >= 17 ? 'TONIGHT' : 'TODAY';
+  if(evDay === tmr) return 'TOMORROW';
+  if(diff < 7*86400000) return 'THIS WEEK';
+  return 'UPCOMING';
+}
+function evtCountdown(e){
+  if(!e.start) return '';
+  let diff = new Date(e.start).getTime() - Date.now();
+  if(diff <= 0) return 'Happening now, join on Zoom';
+  const d = Math.floor(diff/86400000); diff -= d*86400000;
+  const h = Math.floor(diff/3600000); diff -= h*3600000;
+  const m = Math.max(1, Math.floor(diff/60000));
+  return 'Starts in ' + (d ? d+'d ' : '') + (d||h ? h+'h ' : '') + m+'m';
+}
+function renderHomeEvents(){
+  const el = document.getElementById('homeEvtList'); if(!el) return;
+  const list = upcomingEvents();
+  if(!list.length){
+    el.innerHTML = `<a href="https://whatsapp.com/channel/0029Vb72LoyLSmbcJvDunX1U" target="_blank" class="evt-row"><div class="evt-date"><b>Soon</b><span class="mono">Next</span></div><div class="evt-info"><b>Next webinar coming soon</b><span>Follow the Eagle Overseas WhatsApp Channel for the latest schedule</span></div><div class="evt-arrow">→</div></a>`;
+    return;
+  }
+  el.innerHTML = list.map(e => e.poster ? `
+    <div class="evt-promo">
+      <a class="evt-promo-poster" href="${e.link}" target="_blank" rel="noopener"><img src="${e.poster}" alt="${e.title}"></a>
+      <div class="evt-promo-body">
+        <span class="evt-badge" data-urgency="${e.start||''}">${evtUrgency(e)}</span>
+        <b class="evt-promo-title">${e.title}</b>
+        <span class="evt-promo-partner">with ${e.partner}</span>
+        <span class="evt-promo-meta">${e.d} ${e.m} · ${e.note}</span>
+        <span class="evt-countdown" data-start="${e.start||''}">${evtCountdown(e)}</span>
+        <div class="evt-promo-actions">
+          <a class="btn btn-primary btn-sm" href="${e.link}" target="_blank" rel="noopener">Free Registration</a>
+        </div>
+      </div>
+    </div>` : `
+    <a href="/event/" class="evt-row">
+      <div class="evt-date"><b>${e.d}</b><span class="mono">${e.m}</span></div>
+      <div class="evt-info"><b>${e.title}</b><span>${e.note}</span></div>
+      <div class="evt-arrow">→</div>
+    </a>`).join('');
+}
+function renderAnnounceBar(){
+  const e = upcomingEvents()[0]; if(!e || !e.link) return;
+  let closed = null; try{ closed = sessionStorage.getItem('eoBarClosed'); }catch(_){}
+  if(closed === e.start) return;
+  const bar = document.createElement('div');
+  bar.className = 'announce-bar';
+  bar.innerHTML = `<div class="announce-inner"><span class="announce-tag" data-urgency="${e.start||''}">${evtUrgency(e) || 'WEBINAR'}</span><span class="announce-text"><b>Free Webinar</b> · ${(()=>{const p=e.note.split('·')[0].split(',').map(x=>x.trim());return (p[0]||'')+' '+e.d+' '+e.m+(p[1]?', '+p[1]:'');})()}<span class="announce-title">: ${e.title}</span></span><a class="announce-cta" href="${e.link}" target="_blank" rel="noopener">Register →</a></div><button class="announce-close" aria-label="Close">&times;</button>`;
+  document.body.insertBefore(bar, document.body.firstChild);
+  bar.querySelector('.announce-close').addEventListener('click', () => { bar.remove(); try{ sessionStorage.setItem('eoBarClosed', e.start); }catch(_){} });
+}
+function tickEventTimers(){
+  document.querySelectorAll('[data-start]').forEach(n => { const ev = events.find(x => x.start === n.dataset.start); if(ev) n.textContent = evtCountdown(ev); });
+  document.querySelectorAll('[data-urgency]').forEach(n => { const ev = events.find(x => x.start === n.dataset.urgency); if(ev) n.textContent = evtUrgency(ev) || n.textContent; });
+}
+renderHomeEvents();
+renderAnnounceBar();
+setInterval(tickEventTimers, 30000);
 
 const testimonials = [
   {name:"Annisa", place:"Canada", text:"Sis Indira has helped me for the past 2 years relentlessly. She met me where I was and fulfilled what I needed for every twist and turn. I can finally start my study journey in Canada this year."},
