@@ -251,7 +251,7 @@ function scrollTt(dir){
 }
 
 const events = [
-  {d:"05", m:"Nov", title:"Start Your Career as a Chef: Start in Singapore. Graduate with a UK Qualification. Go Global. (At-Sunrice GlobalChef Academy)", note:"Kamis, 19.00 WIB · Online, Zoom"},
+  {d:"07", m:"Nov", title:"Menembus Batas Migrasi Australia: Jadi Chef di Australia (King's School of Culinary Arts)", note:"Sabtu, 20.00 WIB · Online, Zoom"},
 ];
 { const el = document.getElementById('homeEvtList'); if(el) el.innerHTML = events.length ? events.map(e=>`
   <a href="/event/" class="evt-row">
@@ -384,12 +384,12 @@ const uwsVideos = [
   </div>`).join(''); }
 
 const pastEvents = [
+  {title:"Start Your Career as a Chef: Start in Singapore. Graduate with a UK Qualification. Go Global. (At-Sunrice GlobalChef Academy)", date:"Past · November 2026", src:"/images/webinar-at-sunrice.jpg"},
   {title:"Study Construction in New Zealand: Your Pathway to Green List Careers (Laurus Education NZ)", date:"Past · October 2026", src:"/images/webinar-laurus-nz.png"},
   {title:"Singapore, Your Door to APAC: Study. Network. Go Global. Last Chance 50% Scholarship (TMC Academy Singapore)", date:"Past · October 2026", src:"/images/webinar-tmc-singapore.png"},
   {title:"Move to Barcelona: Study in Spain. Connect with Europe. Build Your Global Career. (C3S Business School)", date:"Past · October 2026", src:"/images/webinar-c3s-barcelona.png"},
   {title:"Your Pathway to Austria & Germany: Two Destinations, Two Language Options. English or German, You Choose! (German Educare)", date:"Past · October 2026", src:"/images/webinar-german-educare.jpg"},
   {title:"Kuliah S1 di Belgia Gratis? Bongkar Strategi Mendapatkan Beasiswa S1 Fully Funded di Belgia bersama Scholarship Awardee", date:"Past · October 2026", src:"/images/webinar-belgium-s1.jpg"},
-  {title:"Hospitality Internship in New Zealand: Gain 6-12 Months of International Exposure (Aspen Experience)", date:"Past · October 2026", src:"/images/webinar-aspen-new-zealand.jpg"},
 ];
 /* ===== Past Events — simple static list ===== */
 function renderPastEvents(){
