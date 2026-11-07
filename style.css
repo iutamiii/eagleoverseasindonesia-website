@@ -768,3 +768,5 @@
   ul.article-list{list-style:disc;}
   ol.article-list{list-style:decimal;}
   .article-list li::marker{color:var(--red);}
+  .post-cover.post-cover-tall,.posts.featured .post.has-cover:first-child .post-cover.post-cover-tall{aspect-ratio:1638/1320;}
+  .post-cover.post-cover-tall img,.posts.featured .post.has-cover:first-child .post-cover.post-cover-tall img{object-position:center center;}
