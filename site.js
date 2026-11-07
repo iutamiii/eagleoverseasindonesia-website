@@ -127,7 +127,7 @@ function svcCard(s){
 { const el = document.getElementById('servicesFullGrid'); if(el) el.innerHTML = services.map(svcCard).join(''); }
 const quickStats = [
   {n:"25", l:"Destination countries guided"},
-  {n:"6+", l:"Years of hands-on experience"},
+  {n:"6+", l:"Years of founder experience in international education"},
   {n:"1,600+", l:"Universities we can help you apply to"},
 ];
 { const el = document.getElementById('miniStatList'); if(el) el.innerHTML = quickStats.map(s=>`<div class="mini-svc-item"><span class="dot"></span><b style="color:#fff;margin-right:6px;">${s.n}</b>${s.l}</div>`).join(''); }
