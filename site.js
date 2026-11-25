@@ -443,12 +443,12 @@ function renderPastEvents(){
 renderPastEvents();
 
 const replays = [
+  {ytId:"2cXWRIsgN6A", title:"Jadi Chef di Australia: Menembus Batas Migrasi (King's School of Culinary Arts)", date:"Webinar · 7 November 2026"},
+  {ytId:"neFbLmsOCHM", title:"Start in Singapore: Kuliah Kuliner Bergelar UK (At-Sunrice GlobalChef Academy)", date:"Webinar · 5 November 2026"},
+  {ytId:"NPSzAJUW_hI", title:"Singapore, Your Door to APAC: Last Chance Beasiswa 50% (TMC Academy Singapore)", date:"Webinar · 25 October 2026"},
   {ytId:"nb_i2DJPD24", title:"Study Construction in New Zealand: Your Pathway to Green List Careers (Laurus Education NZ)", date:"Webinar · 31 October 2026"},
   {ytId:"sijV6t0vSsw", title:"Move to Barcelona: Study in Spain, Build Your Global Career (C3S Business School)", date:"Webinar · 23 October 2026"},
   {ytId:"eEYg5zzoLUU", title:"Your Pathway to Austria & Germany: English or German, You Choose! (German Educare)", date:"Webinar · October 2026"},
-  {ytId:"_3HZLfDNc8M", title:"Hospitality Internship in New Zealand: Gain 6-12 Months of International Exposure (Aspen Experience)", date:"Webinar · 15 October 2026"},
-  {ytId:"o4uK1PavjZM", title:"Unlocking Hidden Gem in Europe: Strategi Kuliah Super Hemat di Spanyol Hanya 15jt-an/Year (Campus Spain)", date:"Webinar · 14 October 2026"},
-  {ytId:"SJLNaQLo2jw", title:"Bongkar Strategi Tembus LPDP 2027: Kunci Lolos Beasiswa Sekaligus Siap Jadi Rebutan Industri", date:"Webinar · 13 October 2026"},
 ];
 { const el = document.getElementById('replayGrid'); if(el) el.innerHTML = replays.map(r=>`
   <div class="replay-card" onclick="openVideoModal('https://www.youtube.com/embed/${r.ytId}?autoplay=1')">
